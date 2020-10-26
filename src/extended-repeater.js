@@ -1,7 +1,7 @@
 const CustomError = require("../extensions/custom-error");
 
 module.exports = function repeater(str, options) {
-  if (typeof str !== "string" || typeof options.addition !== "string") {
+  if (typeof str !== "string" || typeof options.addition !== "string" && typeof options.addition !== "undefined") {
      str = String(str);
      options.addition = String(options.addition);
   }
@@ -14,11 +14,11 @@ module.exports = function repeater(str, options) {
    options.additionSeparator = '|'
   }
 
-  if (typeof options.repeatTimes !== "undefined" && options.repeatTimes === undefined) {
+  if (typeof options.repeatTimes !== "number" || options.repeatTimes === undefined) {
     options.repeatTimes = 1
   }
 
-  if (typeof options.additionRepeatTimes !== "undefined" && options.additionRepeatTimes === undefined) {
+  if (typeof options.additionRepeatTimes !== "number" || options.additionRepeatTimes === undefined) {
     options.additionRepeatTimes = 1
   }
   
